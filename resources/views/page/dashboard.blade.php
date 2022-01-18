@@ -47,8 +47,8 @@
           <div class="card card-tale">
             <div class="card-body">
               <p class="mb-4">Pelamar Hari Ini</p>
-              <p class="fs-30 mb-2">4006</p>
-              <p>10.00% (30 days)</p>
+              <p class="fs-30 mb-2">{{$count_jumlahKaryawanHariIni}}</p>
+              <p>Orang</p>
             </div>
           </div>
         </div>
@@ -56,8 +56,8 @@
           <div class="card card-dark-blue">
             <div class="card-body">
               <p class="mb-4">Total Pelamar</p>
-              <p class="fs-30 mb-2">61344</p>
-              <p>22.00% (30 days)</p>
+              <p class="fs-30 mb-2">{{$count_pelamarAll}}</p>
+              <p>Orang</p>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@
           <div class="card card-light-blue">
             <div class="card-body">
               <p class="mb-4">Di Terima</p>
-              <p class="fs-30 mb-2">34040</p>
-              <p>2.00% (30 days)</p>
+              <p class="fs-30 mb-2">{{$count_karyawanDiterima}}</p>
+              <p>Orang</p>
             </div>
           </div>
         </div>
@@ -76,8 +76,8 @@
           <div class="card card-light-danger">
             <div class="card-body">
               <p class="mb-4">Di Tolak</p>
-              <p class="fs-30 mb-2">47033</p>
-              <p>0.22% (30 days)</p>
+              <p class="fs-30 mb-2">{{$count_karyawanDitolak}}</p>
+              <p>Orang</p>
             </div>
           </div>
         </div>

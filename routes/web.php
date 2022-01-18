@@ -30,4 +30,6 @@ Route::group(['middleware' => 'check'], function(){
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('/view-pdf/{id}', [DashboardController::class, 'viewFile']);
     Route::get('/all-pelamar',[DashboardController::class, 'data_all']);
+    Route::get('/pelamar-diterima',[DashboardController::class, 'data_diterima']);
+    Route::get('pelamar-ditolak',[DashboardController::class, 'data_ditolak']);
 });

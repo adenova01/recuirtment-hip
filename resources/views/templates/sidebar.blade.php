@@ -15,8 +15,8 @@
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{url('/all-pelamar')}}">Semua Data</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Di Terima</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Di Tolak</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{url('/pelamar-diterima')}}">Di Terima</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{url('/pelamar-ditolak')}}">Di Tolak</a></li>
         </ul>
       </div>
     </li>

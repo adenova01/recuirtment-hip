@@ -11,7 +11,7 @@
                     Add class <code>.table-bordered</code>
                   </p>
                   <div class="table-responsive pt-3">
-                    <table class="table table-bordered table-responsive" id="dataTable">
+                    <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
                                 <th>Nama Lengkap</th>
@@ -24,7 +24,6 @@
                                 <th class="text-center">File</th>
                                 <th>Status</th>
                                 <th>Tanggal Pengajuan</th>
-                                <th>Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,11 +50,6 @@
                                 <div class="badge badge-{{ $item->status == 'pending' ? 'warning' : 'success' }}">{{$item->status}}</div>
                                 </td>
                                 <td>{{$item->created_at}}</td>
-                                <td>
-                                    @if($item->status == 'pending')
-                                    <a href="#" class="btn btn-outline-info btn-xl">Add Jadwal<br>Interview</a>
-                                    @endif
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
