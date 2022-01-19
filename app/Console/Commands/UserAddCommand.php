@@ -44,6 +44,7 @@ class UserAddCommand extends Command
             'email' => 'office@humaninpartner.com',
             'password' => Hash::make('HIP12345_')
         ]);
-        return 0;
+        
+        $this->info("user created");
     }
 }

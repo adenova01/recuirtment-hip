@@ -11,6 +11,7 @@ class CalonKaryawan extends Model
     protected $table = 'calon_karyawan';
     protected $fillable = [
         'nama_lengkap',
+        'email',
         'jenis_kelamin',
         'nik',
         'no_telp',

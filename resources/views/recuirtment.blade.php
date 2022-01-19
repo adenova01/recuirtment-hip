@@ -296,7 +296,8 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Personal Information</h2> 
-                                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" /> 
+                                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" />
+                                        <input type="email" class="form-control" name="email" placeholder="Email" require />
                                         <label for="gender" class="text-dark">Jenis Kelamin</label><br>
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="gender1" name="gender" checked class="custom-control-input" value="Pria">

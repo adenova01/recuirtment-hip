@@ -16,6 +16,7 @@ class CreateCalonKaryawanTable extends Migration
         Schema::create('calon_karyawan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap', 100);
+            $table->string('email', 100);
             $table->string('jenis_kelamin', 100);
             $table->string('nik', 16);
             $table->string('no_telp', 13);

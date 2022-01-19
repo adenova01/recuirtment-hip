@@ -53,7 +53,9 @@
                                 <td>{{$item->created_at}}</td>
                                 <td>
                                     @if($item->status == 'pending')
-                                    <a href="#" class="btn btn-outline-info btn-xl">Add Jadwal<br>Interview</a>
+                                    <button type="button" onclick="$('#form').attr('action','{{url('/setJadwalInterview/'.$item->id)}}')" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                                      Tambah Jadwal<br> Interview
+                                    </button>
                                     @endif
                                 </td>
                             </tr>
@@ -65,5 +67,48 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <form id="form" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Jadwal Interview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tanggal</label>
+                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Jam</label>
+                                <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Catatan</label>
+                        <textarea class="form-control" id="exampleInputPassword1"></textarea>
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 @stop
