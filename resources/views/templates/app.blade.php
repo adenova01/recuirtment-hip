@@ -162,6 +162,49 @@
       $('#dataTable').DataTable();
     });
 
+    function checkDate()
+    {
+      var tgl = new Date().getDate();
+      var bulan = new Date().getMonth()+1;
+      var tahun = new Date().getFullYear();
+
+      var jam = new Date().getHours();
+      var menit = new Date().getMinutes();
+
+      var tgl_sekarang = bulan >= 10 ? tahun+"-"+bulan+"-"+tgl : tahun+"-0"+bulan+"-"+tgl;
+
+      var date_now = new Date(tgl_sekarang).getTime();
+      var date_pick = new Date($('#tanggal').val()).getTime();
+      
+      if(date_pick < date_now){
+        $('#tanggal').addClass('is-invalid');
+        $('#btnSubmit').attr('disabled','true');
+      } else {
+        $('#tanggal').removeClass('is-invalid');
+        $('#btnSubmit').removeAttr('disabled');
+        if(date_now == date_pick){
+          var time_pick = $('#jam').val().split(":");
+          if(time_pick[0] < jam){
+            $('#jam').addClass('is-invalid');
+            $('#btnSubmit').attr('disabled','true');
+          } else {
+            if(time_pick[0] == jam){
+              if(time_pick[1] < menit){
+                $('#jam').addClass('is-invalid');
+                $('#btnSubmit').attr('disabled','true');
+              } else {
+                $('#jam').removeClass('is-invalid');
+                $('#btnSubmit').removeAttr('disabled');
+              }
+            } else {
+              $('#jam').removeClass('is-invalid');
+              $('#btnSubmit').removeAttr('disabled');
+            }
+          }
+        }
+      }
+    }
+
     $('#pelamar').DataTable( {
         dom: 'Bfrtip',
         buttons: [

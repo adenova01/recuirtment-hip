@@ -1,0 +1,15 @@
+<p>{{$data['isi']}}</p>
+<table>
+    <tr>
+        <td>Tanggal</td>
+        <td>{{$data['tanggal']}}</td>
+    </tr>
+    <tr>
+        <td>Jam</td>
+        <td>{{$data['jam']}}</td>
+    </tr>
+    <tr>
+        <td>Catatan</td>
+        <td>{{$data['catatan']}}</td>
+    </tr>
+</table>

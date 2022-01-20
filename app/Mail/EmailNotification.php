@@ -29,7 +29,7 @@ class EmailNotification extends Mailable
      */
     public function build()
     {
-        return $this->from('recuirtment@humaninpartner.com')
-                    ->view('view.name', compact('data'));
+        return $this->subject('Jadwal Interview')
+                    ->view('Mail.notifikasi_interview');
     }
 }

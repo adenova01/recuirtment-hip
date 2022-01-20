@@ -8,7 +8,9 @@
                 <div class="card-body">
                   <h4 class="card-title">Bordered table</h4>
                   <p class="card-description">
-                    Add class <code>.table-bordered</code>
+                    @if(session('message'))
+                        <div class="alert alert-info">{{session('message')}}</div>
+                    @endif
                   </p>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered table-responsive" id="dataTable">
@@ -18,6 +20,7 @@
                                 <th>Jenis Kelamin</th>
                                 <th>Nik</th>
                                 <th>No Telp</th>
+                                <th>Email</th>
                                 <th>Tempat, Tgl Lahir</th>
                                 <th>alamat</th>
                                 <th>Posisi</th>
@@ -37,6 +40,9 @@
                                     <a href="https://api.whatsapp.com/send?phone={{$item->no_telp}}&text=Halo%20{{$item->nama_lengkap}}" target="_blank">
                                         {{$item->no_telp}}
                                     </a>
+                                </td>
+                                <td>
+                                    <a href="mailto:{{$item->email}}">{{$item->email}}</a>
                                 </td>
                                 <td>{{$item->tempat_tgl_lahir}}</td>
                                 <td>{{$item->alamat}}</td>
@@ -84,26 +90,36 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Tanggal</label>
-                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                            <label for="tanggal" class="form-label">Tanggal</label>
+                            <input type="date" name="tgl" onchange="checkDate()" class="form-control" id="tanggal" aria-describedby="validationServer03Feedback" required>
+                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                Tanggal Tidak Valid
+                            </div>
+
+                                <!-- <label for="tanggal">Tanggal</label>
+                                <input onchange="checkDate()" type="date" class="form-control" id="tanggal" aria-describedby="emailHelp"> -->
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jam</label>
-                                <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="jam" class="form-label">Jam</label>
+                                <input type="time" name="jam" onchange="checkDate()" class="form-control" id="jam" aria-describedby="validationServer03Feedback" required>
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Jam Tidak Valid
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Catatan</label>
-                        <textarea class="form-control" id="exampleInputPassword1"></textarea>
+                        <label for="exampleInputPassword1">Catatan <small class="text-danger">(opsional)</small></label>
+                        <textarea class="form-control" name="catatan" id="exampleInputPassword1"></textarea>
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Send</button>
                 </div>
             </form>
             </div>

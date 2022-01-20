@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\CalonKaryawan;
+use App\Models\JadwalInterview;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailNotification;
@@ -48,10 +49,42 @@ class RecuirtmentController extends Controller
     }
 
     // send jadwal interview
-    public function sendJadwal($id)
+    public function sendJadwal(Request $request, $id)
     {
         $calon = CalonKaryawan::find($id);
 
-        dd($calon->email);
+        $data = [
+            'calon_id' => $calon->id,
+            'tanggal' => $request->post('tgl'),
+            'jam' => $request->post('jam'),
+            'catatan' => $request->post('catatan')
+        ];
+
+        JadwalInterview::insert($data);
+
+        $time = strtotime($request->post('tgl'));
+        $data_email = [
+            'isi' => 'Selamat '.$this->getUcapan(date('H:i')).' '.$calon->nama_lengkap.' Lamaran yang anda kirim telah kami terima dan berikut adalah jadwal untuk melakukan interview.',
+            'tanggal' => ': '.date('D, d M Y', $time),
+            'jam' => ': '.$request->post('jam'),
+            'catatan' => ': '.$request->post('catatan')
+        ];
+
+        Mail::to($calon->email)->send(new EmailNotification($data_email));
+        
+        return back()->with('message','Jadwal Interview Berhasil di tambahkan');
+    }
+
+    private function getUcapan($jam)
+    {
+        if ($jam > '05:30' && $jam < '10:00') {
+            return 'Pagi';
+        } elseif ($jam >= '10:00' && $jam < '15:00') {
+            return 'Siang';
+        } elseif ($jam < '18:00') {
+            return 'Sore';
+        } else {
+            return 'Malam';
+        }
     }
 }
