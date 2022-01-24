@@ -279,6 +279,8 @@
                     </div>
                     @endif
 
+                    <center><img src="https://humaninpartner.com/wp-content/uploads/2021/10/cropped-Logo_Transparan-1-removebg-preview.png" style="width: 200px; margin-bottom: 20px" /></center>
+
                     <h2><strong>Recuirtment PT.Human In Partner</strong></h2>
                     <p>Mohon Melengkapi data setiap step by stepnya</p>
 
