@@ -18,10 +18,11 @@ class RecuirtmentController extends Controller
             'file' => 'required|mimes:pdf',
             'nama_lengkap' => 'required',
             'email' => 'required',
-            'jenis_kelamin' => 'required',
             'nik' => 'required',
             'no_telp' => 'required',
-            'tempat_tgl_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'gender' => 'required',
             'alamat' => 'required',
             'pendidikan' => 'required',
             'posisi' => 'required'

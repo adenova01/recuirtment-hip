@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($data as $item)
+                        @foreach($data as $i => $item)
                             <tr>
                                 <td>{{$item->nama_lengkap}}</td>
                                 <td>{{$item->jenis_kelamin}}</td>
@@ -58,7 +58,7 @@
                                 </td>
                                 <td>{{$item->created_at}}</td>
                                 <td>
-                                    @if($item->status == 'pending')
+                                    @if($item->status == 'pending' && $interview[$i]->first() == null)
                                     <button type="button" onclick="$('#form').attr('action','{{url('/setJadwalInterview/'.$item->id)}}')" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
                                       Tambah Jadwal<br> Interview
                                     </button>

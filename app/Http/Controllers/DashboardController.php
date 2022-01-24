@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CalonKaryawan;
+use App\Models\JadwalInterview;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -37,18 +38,28 @@ class DashboardController extends Controller
     public function data_all()
     {
         $data = CalonKaryawan::all();
-        return view('page.data-pelamar', compact('data'));
+
+        $interview = [];
+
+        for ($i=0; $i < count($data); $i++) { 
+            $interview[$i] = JadwalInterview::where('calon_id', $data[$i]->id)->get();
+        }
+
+        $count_jumlahKaryawanHariIni = CalonKaryawan::where(DB::raw("date(created_at)"), date('Y-m-d'))->count();
+        return view('page.data-pelamar', compact('data','count_jumlahKaryawanHariIni','interview'));
     }
 
     public function data_diterima()
     {
+        $count_jumlahKaryawanHariIni = CalonKaryawan::where(DB::raw("date(created_at)"), date('Y-m-d'))->count();
         $data = CalonKaryawan::where('status','di terima')->get();
-        return view('page.data-pelamarDiterima', compact('data'));
+        return view('page.data-pelamarDiterima', compact('data','count_jumlahKaryawanHariIni'));
     }
 
     public function data_ditolak()
     {
+        $count_jumlahKaryawanHariIni = CalonKaryawan::where(DB::raw("date(created_at)"), date('Y-m-d'))->count();
         $data = CalonKaryawan::where('status','di tolak')->get();
-        return view('page.data-pelamarDiterima', compact('data'));
+        return view('page.data-pelamarDiterima', compact('data','count_jumlahKaryawanHariIni'));
     }
 }

@@ -29,7 +29,7 @@
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <h3 class="text-center">Login</h3>
               <div class="brand-logo text-center">
-                <img src="{{url('/assets_dashboard/images/hip_no_bg.png')}}" alt="logo" style="width: 70px; height: 70px">
+                <img src="{{url('/assets_recuirtment/images/logo.png')}}" alt="logo">
               </div>
               <h4>Hello! let's get started</h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
