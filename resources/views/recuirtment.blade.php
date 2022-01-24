@@ -265,6 +265,11 @@
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-3">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
 
+                    <center><img src="https://humaninpartner.com/wp-content/uploads/2021/10/cropped-Logo_Transparan-1-removebg-preview.png" style="width: 200px; margin-bottom: 20px" /></center>
+
+                    <h2><strong>Recuirtment PT.Human In Partner</strong></h2>
+                    <p>Mohon Melengkapi data setiap step by stepnya</p>
+
                     @if(session('success'))
                     <div class="alert alert-success">{{session('success')}}</div>
                     @endif
@@ -278,11 +283,6 @@
                         </ul>
                     </div>
                     @endif
-
-                    <center><img src="https://humaninpartner.com/wp-content/uploads/2021/10/cropped-Logo_Transparan-1-removebg-preview.png" style="width: 200px; margin-bottom: 20px" /></center>
-
-                    <h2><strong>Recuirtment PT.Human In Partner</strong></h2>
-                    <p>Mohon Melengkapi data setiap step by stepnya</p>
 
                     <div class="row">
                         <div class="col-md-12 mx-0">
@@ -299,7 +299,7 @@
                                     <div class="form-card">
                                         <h2 class="fs-title">Personal Information</h2> 
                                         <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" />
-                                        <input type="email" class="form-control" name="email" placeholder="Email" require />
+                                        <input type="email" class="form-control" name="email" placeholder="Email" />
                                         <label for="gender" class="text-dark">Jenis Kelamin</label><br>
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="gender1" name="gender" checked class="custom-control-input" value="Pria">
@@ -332,7 +332,7 @@
                                                 <h4 class="card-title">Pendidikan</h4>
                                                 <div class="form-group">
                                                     <label>Pilih Pendidikan</label><br>
-                                                    <select class="js-example-basic-single w-100" name="pendidikan">
+                                                    <select class="js-example-basic-single w-100" name="pendidikan" >
                                                         <option selected disabled>- Please Select Pendidikan -</option>
                                                         <option value="SD">SD / Sederajat</option>
                                                         <option value="SMP">SMP / Sederajat</option>
@@ -350,7 +350,7 @@
                                                 <h4 class="card-title">Posisi</h4>
                                                 <div class="form-group">
                                                     <label>Pilih Posisi</label><br>
-                                                    <select class="js-example-basic-single" name="posisi">
+                                                    <select class="js-example-basic-single" name="posisi" >
                                                         <option selected disabled>- Please Select Posisi -</option>
                                                         <option value="Security">Security</option>
                                                         <option value="Driver">Driver</option>
@@ -384,6 +384,21 @@
                                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
                                     <button type="submit" class="next action-button">Confirm</button>
                                 </fieldset>
+                                
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Failed !</h2> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3"> <img src="https://www.freeiconspng.com/uploads/error-icon-4.png" class="fit-image" /></div>
+                                        </div> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Failed Register</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">Success !</h2> <br><br>
@@ -392,11 +407,12 @@
                                         </div> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
+                                                <h5>You Have Successfully Register</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
+                                
                             </form>
                         </div>
                     </div>

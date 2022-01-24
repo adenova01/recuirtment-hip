@@ -15,7 +15,16 @@ class RecuirtmentController extends Controller
     public function saveRecuirtment(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf'
+            'file' => 'required|mimes:pdf',
+            'nama_lengkap' => 'required',
+            'email' => 'required',
+            'jenis_kelamin' => 'required',
+            'nik' => 'required',
+            'no_telp' => 'required',
+            'tempat_tgl_lahir' => 'required',
+            'alamat' => 'required',
+            'pendidikan' => 'required',
+            'posisi' => 'required'
         ]);
 
         $fileName = "";
