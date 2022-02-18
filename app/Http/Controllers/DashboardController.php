@@ -26,7 +26,7 @@ class DashboardController extends Controller
     {
         $file = CalonKaryawan::find($id);
         $path = public_path()."/storage/file_lamaran/".$file->file;
-        
+
         $headers = array(
             'Content-Type: aplication/pdf'
         );
@@ -41,7 +41,7 @@ class DashboardController extends Controller
 
         $interview = [];
 
-        for ($i=0; $i < count($data); $i++) { 
+        for ($i=0; $i < count($data); $i++) {
             $interview[$i] = JadwalInterview::where('calon_id', $data[$i]->id)->get();
         }
 
@@ -61,5 +61,15 @@ class DashboardController extends Controller
         $count_jumlahKaryawanHariIni = CalonKaryawan::where(DB::raw("date(created_at)"), date('Y-m-d'))->count();
         $data = CalonKaryawan::where('status','di tolak')->get();
         return view('page.data-pelamarDiterima', compact('data','count_jumlahKaryawanHariIni'));
+    }
+
+    public function interview()
+    {
+        $data = DB::table('calon_karyawan')
+        ->join('jadwal_interview','calon_karyawan.id','jadwal_interview.calon_id')
+        ->get(['nama_lengkap','tanggal','jam','catatan','no_telp','alamat','posisi','status','calon_karyawan.created_at']);
+        $count_jumlahKaryawanHariIni = CalonKaryawan::where(DB::raw("date(created_at)"), date('Y-m-d'))->count();
+
+        return view('page.data-interview', compact('data','count_jumlahKaryawanHariIni'));
     }
 }

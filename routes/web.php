@@ -33,4 +33,5 @@ Route::group(['middleware' => 'check'], function(){
     Route::get('/pelamar-diterima',[DashboardController::class, 'data_diterima']);
     Route::get('/pelamar-ditolak',[DashboardController::class, 'data_ditolak']);
     Route::post('/setJadwalInterview/{id}', [RecuirtmentController::class, 'sendJadwal']);
+    Route::get('/interview', [DashboardController::class, 'interview']);
 });

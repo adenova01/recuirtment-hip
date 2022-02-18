@@ -294,11 +294,13 @@
                                     <li id="personal"><strong>Pendidikan dan posisi</strong></li>
                                     <li id="payment"><strong>Upload File</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
-                                </ul> <!-- fieldsets -->
+                                </ul>
+
+                                <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Personal Information</h2> 
-                                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" />
+                                        <h2 class="fs-title">Personal Information</h2>
+                                        <input type="text" class="form-control nama" name="nama_lengkap" placeholder="Nama Lengkap" />
                                         <input type="email" class="form-control" name="email" placeholder="Email" />
                                         <label for="gender" class="text-dark">Jenis Kelamin</label><br>
                                         <div class="custom-control custom-radio custom-control-inline">
@@ -309,22 +311,23 @@
                                             <input type="radio" id="gender2" name="gender" class="custom-control-input" value="Perempuan">
                                             <label class="custom-control-label text-dark" for="gender2">Perempuan</label>
                                         </div>
-                                        <input type="text" class="form-control mt-3 number" name="nik" maxlength="16" placeholder="Nik" /> 
+                                        <input type="text" class="form-control mt-3 number" name="nik" maxlength="16" placeholder="Nik" />
                                         <input type="text" class="form-control mt-3 number" name="no_telp" maxlength="13" placeholder="No Hp (Wa)" />
                                         <div class="row">
-                                            <div class="col-sm-6">  
+                                            <div class="col-sm-6">
                                                 <label>Tempat Lahir</label>
-                                                <input type="text" class="form-control mt-3" name="tempat_lahir" placeholder="Tempat Lahir" /> 
+                                                <input type="text" class="form-control mt-3" name="tempat_lahir" placeholder="Tempat Lahir" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Tanggal Lahir</label>
-                                                <input type="date" class="form-control mt-3" name="tanggal_lahir" placeholder="tanggal Lahir" /> 
+                                                <input type="date" class="form-control mt-3" name="tanggal_lahir" placeholder="tanggal Lahir" />
                                             </div>
                                         </div>
                                         <textarea type="text" class="form-control" name="alamat" placeholder="Alamat" height="10"></textarea>
-                                    </div> 
+                                    </div>
                                     <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
+
                                 <fieldset>
                                     <div class="form-card">
                                         <div class="row">
@@ -364,9 +367,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
+
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">File Information</h2>
@@ -380,13 +384,14 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    </div> 
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button">Confirm</button>
                                 </fieldset>
-                                
+
                                 <fieldset>
-                                    <div class="form-card">
+
+                                    <div class="form-card" id="fail">
                                         <h2 class="fs-title text-center">Failed !</h2> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3"> <img src="https://www.freeiconspng.com/uploads/error-icon-4.png" class="fit-image" /></div>
@@ -397,10 +402,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </fieldset>
-                                
-                                <fieldset>
-                                    <div class="form-card">
+
+                                    <div class="form-card" id="success">
                                         <h2 class="fs-title text-center">Success !</h2> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
@@ -411,8 +414,9 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </fieldset>
-                                
+
                             </form>
                         </div>
                     </div>
@@ -433,7 +437,7 @@
     <script src="{{url('/assets_dashboard/vendors/select2/select2.min.js')}}"></script>
     <script src="{{url('/assets_dashboard/js/select2.js')}}"></script>
     <script type='text/Javascript'>
-    
+
     $(document).ready(function(){
 
         $(function(){
@@ -469,13 +473,15 @@
                     opacity = 1 - now;
 
                     current_fs.css({
-                    'display': 'none',
-                    'position': 'relative'
+                        'display': 'none',
+                        'position': 'relative'
                     });
+
                     next_fs.css({'opacity': opacity});
                 },
                 duration: 600
             });
+
         });
 
         $(".previous").click(function(){
@@ -498,6 +504,7 @@
                         'display': 'none',
                         'position': 'relative'
                     });
+
                     previous_fs.css({'opacity': opacity});
                 },
                 duration: 600
