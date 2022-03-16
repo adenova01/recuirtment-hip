@@ -300,8 +300,8 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Personal Information</h2>
-                                        <input type="text" class="form-control nama" name="nama_lengkap" placeholder="Nama Lengkap" />
-                                        <input type="email" class="form-control" name="email" placeholder="Email" />
+                                        <input type="text" id="nama" class="form-control nama" name="nama_lengkap" placeholder="Nama Lengkap" />
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="Email" />
                                         <label for="gender" class="text-dark">Jenis Kelamin</label><br>
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="gender1" name="gender" checked class="custom-control-input" value="Pria">
@@ -311,19 +311,19 @@
                                             <input type="radio" id="gender2" name="gender" class="custom-control-input" value="Perempuan">
                                             <label class="custom-control-label text-dark" for="gender2">Perempuan</label>
                                         </div>
-                                        <input type="text" class="form-control mt-3 number" name="nik" maxlength="16" placeholder="Nik" />
-                                        <input type="text" class="form-control mt-3 number" name="no_telp" maxlength="13" placeholder="No Hp (Wa)" />
+                                        <input type="text" id="nik" class="form-control mt-3 number" name="nik" maxlength="16" placeholder="Nik" />
+                                        <input type="text" id="phone" class="form-control mt-3 number" name="no_telp" maxlength="13" placeholder="No Hp (Wa)" />
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <label>Tempat Lahir</label>
-                                                <input type="text" class="form-control mt-3" name="tempat_lahir" placeholder="Tempat Lahir" />
+                                                <input type="text" id="tempat_lahir" class="form-control mt-3" name="tempat_lahir" placeholder="Tempat Lahir" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Tanggal Lahir</label>
-                                                <input type="date" class="form-control mt-3" name="tanggal_lahir" placeholder="tanggal Lahir" />
+                                                <input type="date" id="tgl_lahir" class="form-control mt-3" name="tanggal_lahir" placeholder="tanggal Lahir" />
                                             </div>
                                         </div>
-                                        <textarea type="text" class="form-control" name="alamat" placeholder="Alamat" height="10"></textarea>
+                                        <textarea type="text" id="alamat" class="form-control" name="alamat" placeholder="Alamat" height="10"></textarea>
                                     </div>
                                     <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
@@ -391,7 +391,7 @@
 
                                 <fieldset>
 
-                                    <div class="form-card" id="fail">
+                                    {{-- <div class="form-card" id="fail">
                                         <h2 class="fs-title text-center">Failed !</h2> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3"> <img src="https://www.freeiconspng.com/uploads/error-icon-4.png" class="fit-image" /></div>
@@ -401,7 +401,7 @@
                                                 <h5>You Have Failed Register</h5>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-card" id="success">
                                         <h2 class="fs-title text-center">Success !</h2> <br><br>
